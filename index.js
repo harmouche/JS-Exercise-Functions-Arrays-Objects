@@ -171,7 +171,7 @@ function getCarInfoByIndex(inventory, index) {
 function getLastCarInfo(inventory) {
   /* code here */
   let lastCar = inventory[inventory.length - 1];
-  return `This is a ${lastCar.car_make} ${lastCar.car_model}';
+  return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
 }
 
 /**
@@ -190,7 +190,7 @@ function getCarInfoById(inventory, id) {
   /* code here */
   for (let i = 0; i <inventory.length; i++) {
     if(inventory[i].id == id) {
-      return `This is a ${inventory[i].car_make} ${inventory[i].car_model}';
+      return `This is a ${inventory[i].car_make} ${inventory[i].car_model}`;
     }
   }
 }
@@ -206,15 +206,15 @@ function getCarInfoById(inventory, id) {
 function sortCarInventory(inventory) {
   /* code here */
   return inventory.sort((a, b) => {
-    var modelA = a.car-model.toUpperCase();
-    var modelB = b.car-model.toUpperCase();
+    var modelA = a.car_model.toUpperCase();
+    var modelB = b.car_model.toUpperCase();
 
     if(modelA < modelB) {
       return -1;
     } else if (modelA > modelB) {
         return 1;
     } else {
-          return o;
+          return 0;
     }
   });
 }
@@ -231,10 +231,11 @@ function sortCarInventory(inventory) {
 function getModelYears(inventory) {
   /* code here */
   const modelYears = [];
-  modelYear.push(inventory[i].car_year);
+  for (let i = 0; i < inventory.length; i++ ) {
+  modelYears.push(inventory[i].car_year);
 }
 return modelYears;
-
+}
 /**
  * ### Challenge `getOlderCars`
  * 
@@ -251,12 +252,12 @@ function getOlderCars(inventory, maxYear) {
   /* code here */
   const olderCars = [];
 
-  for (let i = 0; i < inventory[o].;ength; i++) {
-    if(inventory[i0].car_year <= maxYear) {
+  for (let i = 0; i < inventory.length; i++) {
+    if(inventory[i].car_year <= maxYear) {
       olderCars.push(inventory[i])
     }
   }
-  return model
+  return olderCars
 }
 
 /**
@@ -274,15 +275,15 @@ function getGermanCars(inventory) {
   /* code here */
   const germanCars = [];
 
-  for (i = 0; i < inventory.length; i++) {
-      if(inventory[i].car_make == "Audi"
-         inventory[i].car_make == "Mercedes-Benz"
-         inventory[i].car_make == "Volkswagen"
-         inventory[i].car_make == "BMW") {
+  for (let i = 0; i < inventory.length; i++) {
+      if(inventory[i].car_make == "Audi" 
+         || inventory[i].car_make == "Mercedes-Benz"
+         || inventory[i].car_make == "Volkswagen"
+         || inventory[i].car_make == "BMW") {
            germanCars.push(inventory[i]);
          }
       }
-      retrun germanCars;
+      return germanCars;
 }
 
 /**
@@ -303,7 +304,7 @@ function getGermanCars(inventory) {
  *   return num * 2
  * }
 */
-const sum == (a, b) => a + b; // code here!
+const sum = (a, b) => a + b; // code here!
 const addFive = (num) => num + 5; // code here!
 const argTimesTwo = (num) => num * 2; // code here!
 
